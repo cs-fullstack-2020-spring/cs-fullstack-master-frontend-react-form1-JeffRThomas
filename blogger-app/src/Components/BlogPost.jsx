@@ -6,21 +6,28 @@ class BlogPosts extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            BlogPosts: [],
+            BlogTitle: "",
+            BlogPost: ""
         };
     };
 
-    userTitle=()=>{
+    userTitle = (event) => {
         console.log("New Title Keystroke");
+        this.setState({ BlogTitle: event.target.value })
+        console.log(this.state.BlogTitle);
     };
 
-    userPost=()=>{
+    userPost = (event) => {
         console.log("New Post Keystroke");
+        this.setState({ BlogPost: event.target.value })
+        console.log(this.state.BlogPost);
     };
 
-    userSubmitBlog=(event)=>{
+    userSubmitBlog = (event) => {
         event.preventDefault();
         console.log("Blog Post Entered");
+        console.log(this.state);
+        this.props.callParentBack(this.state);
     };
 
 
@@ -34,12 +41,12 @@ class BlogPosts extends Component {
                         <legend>Enter Your Post</legend>
                         <div>
                             <label htmlFor="blogtitle">Blog Title: </label>
-                            <input type="text" id="blogtitle" onChange={this.userTitle} ></input>
+                            <input type="text" id="blogtitle" onChange={this.userTitle} value={this.state.BlogTitle}></input>
                         </div>
 
                         <div>
                             <label htmlFor="blogpost">Blog Post: </label>
-                            <textarea type="text" id="blogpost" onChange={this.userPost} ></textarea>
+                            <textarea type="text" id="blogpost" onChange={this.userPost} value={this.state.BlogPost}></textarea>
                         </div>
 
                         <button onClick={this.userSubmitBlog}>Submit Blog</button>
