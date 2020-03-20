@@ -10,24 +10,27 @@ class BlogPosts extends Component {
             BlogPost: ""
         };
     };
-
+    // Event Listener for BlogTitle Input Field
     userTitle = (event) => {
         console.log("New Title Keystroke");
         this.setState({ BlogTitle: event.target.value })
         console.log(this.state.BlogTitle);
     };
 
+    // Event Listener for BlogPost Input Field
     userPost = (event) => {
         console.log("New Post Keystroke");
         this.setState({ BlogPost: event.target.value })
         console.log(this.state.BlogPost);
     };
 
+    // Form Submission Handler & State Lift Up To Parent
     userSubmitBlog = (event) => {
         event.preventDefault();
         console.log("Blog Post Entered");
         console.log(this.state);
         this.props.callParentBack(this.state);
+        this.setState({BlogTitle:"",BlogPost:""})
     };
 
 

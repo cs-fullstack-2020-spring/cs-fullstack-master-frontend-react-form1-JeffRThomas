@@ -11,25 +11,27 @@ class AppContainer extends Component {
         this.state = {
             BlogPosts:
                 [
-                    {
-                        BlogTitle: "Sample Post 1",
-                        BlogPost: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora ut, ipsum excepturi praesentium veritatis quos exercitationem numquam non soluta. Fugiat quos culpa architecto id quibusdam eaque illo cum assumenda provident."
-                    },
+                    // Starter Data For Testing Logic Involving Shared State In Parent/Child Communication
+                    // {
+                    //     BlogTitle: "Sample Post 1",
+                    //     BlogPost: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora ut, ipsum excepturi praesentium veritatis quos exercitationem numquam non soluta. Fugiat quos culpa architecto id quibusdam eaque illo cum assumenda provident."
+                    // },
 
-                    {
-                        BlogTitle: "Sample Post 2",
-                        BlogPost: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, nemo enim cumque ea officia similique est asperiores excepturi maiores dicta! Eius quibusdam optio, blanditiis voluptatum fugit asperiores perferendis rem distinctio."
-                    },
+                    // {
+                    //     BlogTitle: "Sample Post 2",
+                    //     BlogPost: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, nemo enim cumque ea officia similique est asperiores excepturi maiores dicta! Eius quibusdam optio, blanditiis voluptatum fugit asperiores perferendis rem distinctio."
+                    // },
 
-                    {
-                        BlogTitle: "Sample Post 3",
-                        BlogPost: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet neque corrupti, repudiandae non libero dignissimos in ipsum minus amet? Laboriosam iure sed id atque fugiat aspernatur nesciunt, iste dolor cum!"
-                    }
+                    // {
+                    //     BlogTitle: "Sample Post 3",
+                    //     BlogPost: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet neque corrupti, repudiandae non libero dignissimos in ipsum minus amet? Laboriosam iure sed id atque fugiat aspernatur nesciunt, iste dolor cum!"
+                    // }
                 ],
         };
         console.log(this.state);// Check Starter Data For Blog Post Array
     };
 
+    // Call Back Method To Handle Information Passed Up From Child
     addBlogPost = (newobj) => {
         console.log("BlogPost called me");
         this.state.BlogPosts.push(newobj);
@@ -45,6 +47,7 @@ class AppContainer extends Component {
                 <Footer/>
                 <PostList/> */}
                 <BlogPost callParentBack={this.addBlogPost} />
+                <PostList showMeWhatYouGot={this.state.BlogPosts}/>
             </Fragment>
         )
     };
