@@ -43,9 +43,9 @@ class AppContainer extends Component {
             <Fragment>
                 {/* Component Roll Call */}
                 {/* <p>AppContainer is here!</p> */}
-                {/* <Header/>
+                <Header/>
                 <Footer/>
-                <PostList/> */}
+                <PostList/>
                 <BlogPost callParentBack={this.addBlogPost} />
                 <PostList showMeWhatYouGot={this.state.BlogPosts}/>
             </Fragment>
